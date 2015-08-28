@@ -1,0 +1,22 @@
+{
+    "name": "bzarzuela/modelfilter",
+    "type": "library",
+    "description": "Utility Class for Laravel 5 to assist in easily filtering paginated results.",
+    "keywords": ["filter", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "authors": [
+    	{
+    		"name": "Bryan Zarzuela",
+    		"email": "bryan@teleserv.ph",
+    		"homepage": "http://teleserv.ph"
+    	}
+    ],
+    "autoload": {
+    	"psr-4": {
+    		"Bzarzuela": "src"
+    	}
+    }
+}

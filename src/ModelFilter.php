@@ -16,7 +16,18 @@ class ModelFilter
      *
      * @param string $key
      */
-    public function __construct($key)
+    public function __construct($key = null)
+    {
+        if (! is_null($key)) {
+            $this->setKey($key);
+        }
+    }
+
+    /**
+     * Sets a unique key to hold the filter form data in the session.
+     * @param string $key Key name. Usually the model's table name
+     */
+    public function setKey($key)
     {
         $this->key = $key;
 
@@ -24,6 +35,8 @@ class ModelFilter
         if (! session()->has('bzarzuela.filters')) {
             session(['bzarzuela.filters' => [$key => []]]);
         }
+
+        return $this;
     }
 
     /**

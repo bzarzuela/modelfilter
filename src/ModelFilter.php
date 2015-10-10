@@ -159,7 +159,11 @@ class ModelFilter
                     break;
 
                 default:
-                    $query->where($rule[1], '=', $this->getFormData($name));
+                    $field = $name;
+                    if (isset($rule[1])) {
+                        $field = $rule[1];
+                    }
+                    $query->where($field, '=', $this->getFormData($name));
                     break;
             }
         }

@@ -8,7 +8,8 @@ namespace Bzarzuela;
  */
 class ModelFilter
 {
-    private $key;
+    protected $key;
+    protected $rules;
 
     /**
      * Initialize with a unique key for the model.
@@ -56,7 +57,7 @@ class ModelFilter
      */
     public function setRules($rules)
     {
-        $this->remember('rules', $rules);
+        $this->rules = $rules;
     }
 
     /**
@@ -64,13 +65,7 @@ class ModelFilter
      */
     public function getRules()
     {
-        $filters = session('bzarzuela.filters');
-
-        if (isset($filters[$this->key]['rules'])) {
-            return $filters[$this->key]['rules'];
-        }
-
-        return [];
+        return $this->rules;
     }
 
     /**

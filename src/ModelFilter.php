@@ -153,6 +153,13 @@ class ModelFilter
                     $query->where($field, 'like', $this->getFormData($name) . '%');
                     break;
 
+                case 'scope':
+                    if ($this->getFormData($name)) {
+                        $scope = $name;
+                        $query->$scope();
+                    }
+                    break;
+
                 default:
                     $field = $name;
                     if (isset($rule[1])) {
